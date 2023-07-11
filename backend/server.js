@@ -4,14 +4,14 @@ const express = require("express");
 const mongoose = require("mongoose")
 
 // routers
-const postRoutes = require("./routes/posts");
+const postRoutes = require("./routes/postsRouter");
 
 const app = express();
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.json({ mssg: "Software Modernization Backend" })
+    res.json({ mssg: "This is Software Modernization Backend" })
 })
 
 app.use('/posts', postRoutes);
