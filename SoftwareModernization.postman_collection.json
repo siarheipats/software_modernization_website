@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "3db902ce-508e-4f69-a958-8a64ca602454",
+		"name": "SoftwareModernization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14791363"
+	},
+	"item": [
+		{
+			"name": "GET /",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"GET message\", function () {",
+							"     //Check for appropriate error message",
+							"     pm.expect(pm.response.json()[\"mssg\"]).to.eq(\"Software Modernization Backend\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
