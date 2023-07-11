@@ -37,6 +37,169 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET /posts/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"GET message\", function () {",
+							"     //Check for appropriate error message",
+							"     pm.expect(pm.response.json()[\"mssg\"]).to.eq(\"GET all posts\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/posts",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /posts/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"GET message\", function () {",
+							"     //Check for appropriate error message",
+							"     pm.expect(pm.response.json()[\"mssg\"]).to.eq(\"GET a post by ID\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/posts/123",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"posts",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /posts/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"GET message\", function () {",
+							"     //Check for appropriate error message",
+							"     pm.expect(pm.response.json()[\"mssg\"]).to.eq(\"POST a post\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/posts",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /posts/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"GET message\", function () {",
+							"     //Check for appropriate error message",
+							"     pm.expect(pm.response.json()[\"mssg\"]).to.eq(\"DELETE a post by ID\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/posts/123",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"posts",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /posts/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"GET message\", function () {",
+							"     //Check for appropriate error message",
+							"     pm.expect(pm.response.json()[\"mssg\"]).to.eq(\"PATCH a post by ID\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/posts/123",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"posts",
+						"123"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
