@@ -39,11 +39,46 @@ const addPost = async (req, res) => {
 }
 
 // Delete a post
+const deletePost = async (req, res) => {
+    const { id } = req.params;
+
+    // Validate ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: "Invalid ID." });
+    }
+
+    const post = PostModel.findOneAndDelete({ _id: id });
+
+    if (!post) {
+        return res.status(400).json({ error: "No post with this ID exists." });
+    }
+
+    res.status(200).json(post);
+}
 
 // Update a post
+const updatePost = async (req, res) => {
+    const { id } = req.params;
+    const { title, body, author, category, softwareName } = req.body;
+
+    // Validate ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: "Invalid ID." });
+    }
+
+    const post = await PostModel.findOneAndUpdate({ _id: id }, { ...req.body });
+
+    if (!post) {
+        return res.status(400).json({ error: "No post with this ID exists." });
+    }
+
+    res.status(200).json(post);
+}
 
 module.exports = {
     getPost,
     getAllPosts,
     addPost,
+    deletePost,
+    updatePost
 }
