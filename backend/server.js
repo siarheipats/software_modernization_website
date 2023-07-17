@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 
 // routers
 const postRoutes = require("./routes/postsRouter");
+const statsRouter = require("./routes/statRouter");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/posts', postRoutes);
+app.use('/stats', statsRouter);
 
 mongoose.connect(process.env.MONGOCONNECTIONSTRING).then(() => {
     app.listen(process.env.PORT, () => {

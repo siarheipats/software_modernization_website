@@ -11,28 +11,18 @@ const {
 const router = express.Router();
 
 // Get all posts
-router.get('/', (req, res) => {
-    res.json({ mssg: "GET all posts" })
-});
+router.get('/', getAllPosts);
 
 // Get one post by ID
-router.get('/:id', (req, res) => {
-    res.json({ mssg: `GET a post by ID` })
-});
+router.get('/:id', getPost);
 
 // Add a post
-router.post('/', (req, res) => {
-    res.json({ mssg: "POST a post" })
-});
+router.post('/', addPost);
 
 // Delete a post by ID
-router.delete('/:id', (req, res) => {
-    res.json({ mssg: "DELETE a post by ID" })
-});
+router.delete('/:id', deletePost);
 
 // Update a post by ID
-router.patch('/:id', (req, res) => {
-    res.json({ mssg: "PATCH a post by ID" })
-});
+router.patch('/:id', updatePost);
 
 module.exports = router;

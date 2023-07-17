@@ -1,10 +1,19 @@
 const PostModel = require("../models/postsModel");
 const mongoose = require("mongoose");
 
+
+
 // Get all posts
 const getAllPosts = async (req, res) => {
+    const page = req.query.page || 0;
+    const postPerPage = 3;
+
+    
     // add pagination 
-    const posts = await PostModel.find({}).sort({ createdAt: -1 });
+    const posts = await PostModel.find({})
+        .sort({ createdAt: -1 })
+        .skip(page * postPerPage)
+        .limit(postPerPage);
     res.status(200).json(posts);
 }
 
@@ -47,7 +56,7 @@ const deletePost = async (req, res) => {
         return res.status(404).json({ error: "Invalid ID." });
     }
 
-    const post = PostModel.findOneAndDelete({ _id: id });
+    const post = await PostModel.findOneAndDelete({ _id: id });
 
     if (!post) {
         return res.status(400).json({ error: "No post with this ID exists." });
