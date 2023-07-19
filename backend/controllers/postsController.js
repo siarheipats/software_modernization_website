@@ -86,7 +86,7 @@ const deletePost = async (req, res) => {
         return res.status(400).json({ error: "No post with this ID exists." });
     }
 
-    res.status(200).json(post);
+    res.status(200).json();
 }
 
 // Update a post
@@ -106,7 +106,7 @@ const updatePost = async (req, res) => {
     if (!post) {
         return res.status(400).json({ error: "No post with this ID exists." });
     }
-    res.status(200).json(post);
+    res.status(200).json();
 }
 
 module.exports = {
