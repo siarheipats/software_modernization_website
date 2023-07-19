@@ -2,6 +2,7 @@ const express = require('express');
 
 const {
     getPost,
+    getAllPostsPages,
     getAllPosts,
     addPost,
     deletePost,
@@ -12,6 +13,9 @@ const router = express.Router();
 
 // Get all posts
 router.get('/', getAllPosts);
+
+// Get all posts paginated
+router.get('/pages/', getAllPostsPages);
 
 // Get one post by ID
 router.get('/:id', getPost);

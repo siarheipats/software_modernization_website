@@ -1,0 +1,65 @@
+[
+    {
+        "title": "My 1st report",
+        "body": "This is my 1st report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 2nd report",
+        "body": "This is my 2nd report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 3rd report",
+        "body": "This is my 1st report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 4th report",
+        "body": "This is my 4th report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 5th report",
+        "body": "This is my 5th report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 6th report",
+        "body": "This is my 6th report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 7th report",
+        "body": "This is my 7th report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 8th report",
+        "body": "This is my 8th report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    },
+    {
+        "title": "My 4th report",
+        "body": "This is my 9th report which tests inserting into the database",
+        "author": "S. Pats",
+        "category": "Bug",
+        "softwareName": "CCE"
+    }
+]
