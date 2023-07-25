@@ -10,7 +10,7 @@ const getNumberOfPages = async (req, res) => {
 
 const getNumberOfPosts = async (req, res) => {
     PostModel.count({}).then(count => {
-        res.status(200).json({ posts: count });
+        res.status(200).json({ "posts": count });
     });
 }
 
