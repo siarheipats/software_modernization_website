@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 
 
@@ -29,12 +28,12 @@ const Posts = () => {
                 <Grid item xs>
                 </Grid>
                 <Grid item xs={6}>
-                    <Stack spacing={2}>
+                    <div className="posts">
                         {posts && posts.map((post) => (
                             <PostDetails key={post._id} post={post} />
                         ))
                         }
-                    </Stack>
+                    </div>
                 </Grid>
                 <Grid item xs>
                 </Grid>
