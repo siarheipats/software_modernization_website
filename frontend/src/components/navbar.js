@@ -4,6 +4,7 @@ import logo from './img/logo.png'
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import SearchIcon from '@mui/icons-material/Search';
+import AssistantIcon from '@mui/icons-material/Assistant';
 
 const Navbar = () => {
     return (
@@ -31,6 +32,14 @@ const Navbar = () => {
                                 <a class="nav-link">
                                     <ListAltIcon />
                                     View Suggestions
+                                </a>
+                            </Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to="/posts">
+                                <a class="nav-link">
+                                    <AssistantIcon />
+                                    My Suggestions
                                 </a>
                             </Link>
                         </li>

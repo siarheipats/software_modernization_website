@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Pages and components
 import Home from './pages/home';
 import Posts from './pages/posts';
+import UserPosts from './pages/userPosts';
 import PostAdd from './pages/post_add';
 import Search from './pages/search';
 import Navbar from './components/navbar';
@@ -18,6 +19,7 @@ function App() {
           <Route path='/posts' element={<Posts />} />
           <Route path='/post_add' element={<PostAdd />} />
           <Route path='/search' element={<Search />} />
+          <Route path='/myposts' element={<UserPosts />} />
         </Routes>
         <Footer />
       </BrowserRouter>

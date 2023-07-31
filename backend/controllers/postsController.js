@@ -1,5 +1,6 @@
 const PostModel = require("../models/postsModel");
 const mongoose = require("mongoose");
+const { use } = require("../routes/postsRouter");
 require('dotenv').config()
 
 function validatePostLength(post) {
@@ -34,6 +35,15 @@ const getAllPosts = async (req, res) => {
     const posts = await PostModel.find({})
         .sort({ createdAt: -1 });
     res.status(200).json(posts);
+}
+
+const getUserPosts = async (req, res) => {
+    const { user } = req.params;
+    const userPosts = await PostModel.find({ author: user })
+        .sort({ createdAt: -1 });;
+
+    console.log(userPosts);
+    res.status(200).json(userPosts);
 }
 
 // Get post by ID
@@ -111,6 +121,7 @@ const updatePost = async (req, res) => {
 
 module.exports = {
     getPost,
+    getUserPosts,
     getAllPostsPages,
     getAllPosts,
     addPost,
