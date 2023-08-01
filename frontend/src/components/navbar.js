@@ -36,7 +36,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li class="nav-item">
-                            <Link to="/posts">
+                            <Link to="/myposts">
                                 <a class="nav-link">
                                     <AssistantIcon />
                                     My Suggestions

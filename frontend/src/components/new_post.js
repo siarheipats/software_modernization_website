@@ -1,16 +1,49 @@
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+
+
+//date fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+
 const NewPost = ({ post }) => {
     return (
-        <div className="post-details">
-            <h3>Your Post Was Successfully Added.</h3>
-            <p class="h4">Title: {post.title}</p>
-            <p class="h5">Author: {post.author}</p>
-            <p class="lead">
-                {post.body}
-            </p>
-            <p>{post.createdAt}</p>
-            <button>Edit</button>
-            <button>Delete</button>
-        </div >
+        <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+            <Box sx={{ my: 1, mx: 3 }}>
+                <Grid container alignItems="center">
+                    <Grid xs>
+                        <Typography gutterBottom variant="h5" sx={{ mt: 2 }}>
+                            Your Post Was Successfully Added.
+                        </Typography>
+                        <Typography gutterBottom variant="h5" sx={{ mt: 2 }}>
+                            <b>Title: </b>{post.title}
+                        </Typography>
+                    </Grid>
+                    <Grid>
+                        <Typography gutterBottom variant="h5" component="div">
+
+                        </Typography>
+                    </Grid>
+                </Grid>
+                <Typography color="text.primary" variant="body">
+                    {post.body}
+                </Typography>
+            </Box>
+            <Divider variant="middle" />
+            <Box sx={{ m: 2 }}>
+                <Typography gutterBottom variant="body1">
+                    <Grid container alignItems="center">
+                        <Grid xs>
+                            <b>Author: </b>{post.author}
+                        </Grid>
+                        <Grid>
+                            <b>Posted on: </b> {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
+                        </Grid>
+                    </Grid>
+                </Typography>
+            </Box>
+        </Box>
     )
 }
 

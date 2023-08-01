@@ -42,7 +42,6 @@ const getUserPosts = async (req, res) => {
     const userPosts = await PostModel.find({ author: user })
         .sort({ createdAt: -1 });;
 
-    console.log(userPosts);
     res.status(200).json(userPosts);
 }
 
@@ -116,7 +115,7 @@ const updatePost = async (req, res) => {
     if (!post) {
         return res.status(400).json({ error: "No post with this ID exists." });
     }
-    res.status(200).json();
+    res.status(200).json(post);
 }
 
 module.exports = {
