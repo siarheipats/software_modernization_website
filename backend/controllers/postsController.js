@@ -118,6 +118,19 @@ const updatePost = async (req, res) => {
     res.status(200).json(post);
 }
 
+// Search Database
+const search = async (req, res) => {
+    const { searchParam } = req.body;
+    const searchResult = await PostModel.find({
+        $or: [
+            { title: { $regex: searchParam, $options: 'i' } },
+            { body: { $regex: searchParam, $options: 'i' } },
+            { author: { $regex: searchParam, $options: 'i' } },
+        ]
+    })
+    res.status(200).json(searchResult)
+}
+
 module.exports = {
     getPost,
     getUserPosts,
@@ -125,5 +138,6 @@ module.exports = {
     getAllPosts,
     addPost,
     deletePost,
-    updatePost
+    updatePost,
+    search
 }

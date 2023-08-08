@@ -7,10 +7,14 @@ const {
     getAllPosts,
     addPost,
     deletePost,
-    updatePost
+    updatePost,
+    search
 } = require('../controllers/postsController')
 
 const router = express.Router();
+
+// Search Posts
+router.get('/search/', search);
 
 // Get all posts
 router.get('/', getAllPosts);
