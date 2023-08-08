@@ -13,6 +13,7 @@ const Search = () => {
     const [posts, setPosts] = useState(null);
     const [openPostDetailsDrawer, setOpenPostDetailsDrawer] = useState(false)
     const [selectedPostDetails, setSelectedPostDetails] = useState(null)
+    const [postsLength, setPostsLength] = useState(-1);
 
     const searchPosts = async () => {
         const response = await fetch(`/posts/search/${searchParam}`);
@@ -21,6 +22,7 @@ const Search = () => {
 
         if (response.ok) {
             setPosts(json);
+            setPostsLength(json.length);
         }
     }
 
@@ -59,7 +61,7 @@ const Search = () => {
                             />
                         ))
                         }
-                        {posts.length === 0 &&
+                        {postsLength === 0 &&
                             <Box sx={{ width: '100%', bgcolor: 'background.paper', pt: 10 }}>
                                 <Grid container alignItems="center">
                                     <div>No results!</div>
