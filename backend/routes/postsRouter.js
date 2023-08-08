@@ -14,7 +14,7 @@ const {
 const router = express.Router();
 
 // Search Posts
-router.get('/search/', search);
+router.get('/search/:searchParam', search);
 
 // Get all posts
 router.get('/', getAllPosts);

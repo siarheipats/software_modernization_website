@@ -120,7 +120,7 @@ const updatePost = async (req, res) => {
 
 // Search Database
 const search = async (req, res) => {
-    const { searchParam } = req.body;
+    const { searchParam } = req.params;
     const searchResult = await PostModel.find({
         $or: [
             { title: { $regex: searchParam, $options: 'i' } },
