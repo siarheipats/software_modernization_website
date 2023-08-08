@@ -11,6 +11,8 @@ import PostEdit from "../components/post_edit";
 
 import PostDetailsDrawer from "../components/post_details_drawer";
 
+import ConfirmDeleteModal from "../modals/confirmDeleteModal";
+
 const UserPosts = () => {
     const [user, setUser] = useState("Default Author")
     const [posts, setPosts] = useState(null);
@@ -21,6 +23,9 @@ const UserPosts = () => {
 
     const [openPostDetailsDrawer, setOpenPostDetailsDrawer] = useState(false)
     const [selectedPostDetails, setSelectedPostDetails] = useState(null)
+
+    const [openModal, setOpenModal] = useState(false);
+    const [postToDelete, setPostToDelete] = useState(null)
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -45,16 +50,22 @@ const UserPosts = () => {
 
     }
 
-    const deletePost = async (postId) => {
-        const response = await fetch(`/posts/${postId}`, {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' }
-        });
-        if (response.ok) {
-            const newPosts = posts.filter(p => p._id !== postId);
-            setPosts(newPosts);
+    const deletePost = async () => {
+        if (postToDelete === null) {
+            return
+        } else {
+            const response = await fetch(`/posts/${postToDelete._id}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (response.ok) {
+                const newPosts = posts.filter(p => p._id !== postToDelete._id);
+                setPosts(newPosts);
+                setPostToDelete(null);
+                setOpenModal(false)
+            }
+            fetchPosts();
         }
-        fetchPosts();
     }
 
     return (
@@ -91,6 +102,9 @@ const UserPosts = () => {
                                 setPostToEdit={setPostToEdit}
                                 setIsDrawerOpen={setOpenPostDetailsDrawer}
                                 setOpenedPostDetails={setSelectedPostDetails}
+                                openDeleteModal={openModal}
+                                setOpenDeleteModal={setOpenModal}
+                                setPostToDelete={setPostToDelete}
                             />
                         ))) :
                             (
@@ -106,7 +120,17 @@ const UserPosts = () => {
 
                 </Grid>
             </Grid>
-            <PostDetailsDrawer post={selectedPostDetails} isDrawerOpen={openPostDetailsDrawer} setIsDrawerOpen={setOpenPostDetailsDrawer} />
+            <PostDetailsDrawer
+                post={selectedPostDetails}
+                isDrawerOpen={openPostDetailsDrawer}
+                setIsDrawerOpen={setOpenPostDetailsDrawer}
+            />
+            <ConfirmDeleteModal
+                open={openModal}
+                setOpen={setOpenModal}
+                post={postToDelete}
+                functionToCall={deletePost}
+            />
         </Box >
     )
 }

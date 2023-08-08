@@ -12,7 +12,17 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Tooltip from '@mui/material/Tooltip';
 import Divider from '@mui/material/Divider';
 
-const MyPostDetails = ({ post, deletePost, setShowEdit, setPostToEdit, setIsDrawerOpen, setOpenedPostDetails }) => {
+const MyPostDetails = ({
+    post,
+    deletePost,
+    setShowEdit,
+    setPostToEdit,
+    setIsDrawerOpen,
+    setOpenedPostDetails,
+    openDeleteModal,
+    setOpenDeleteModal,
+    setPostToDelete
+}) => {
     return (
         <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
             <Box sx={{ my: 1, mx: 3 }}>
@@ -29,14 +39,14 @@ const MyPostDetails = ({ post, deletePost, setShowEdit, setPostToEdit, setIsDraw
                                     <OpenInNewIcon onClick={() => { setIsDrawerOpen(true); setOpenedPostDetails(post) }} />
                                 </IconButton>
                             </Tooltip>
-                            <Tooltip title="Delete">
-                                <IconButton>
-                                    <DeleteIcon onClick={() => deletePost(post._id)} />
-                                </IconButton>
-                            </Tooltip>
                             <Tooltip title="Edit">
                                 <IconButton>
                                     <EditIcon onClick={() => { setPostToEdit(post); setShowEdit(true) }} />
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Delete">
+                                <IconButton>
+                                    <DeleteIcon onClick={() => { setOpenDeleteModal(true); setPostToDelete(post) }} />
                                 </IconButton>
                             </Tooltip>
                         </Typography>

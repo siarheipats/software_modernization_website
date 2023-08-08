@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import MenuItem from '@mui/material/MenuItem';
 
 const PostEdit = ({ post, setShowEdit, fetchPosts }) => {
     const [postId, setPostId] = useState(post._id);
@@ -53,7 +54,7 @@ const PostEdit = ({ post, setShowEdit, fetchPosts }) => {
 
     return (
         <div>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ width: '100%', padding: 15, mx: 'auto' }}>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ width: '100%', padding: 15, mx: 'auto', bgcolor: 'background.paper', p: 2 }}>
                 <Box sx={{ mb: 3 }}>
                     <Grid container alignItems="center">
                         <Grid xs>
@@ -70,7 +71,7 @@ const PostEdit = ({ post, setShowEdit, fetchPosts }) => {
                         </Grid>
                     </Grid>
                 </Box>
-                <TextField sx={{ p: 1 }}
+                <TextField sx={{p: 1, mt: 1 }}
                     required
                     fullWidth
                     label="Title"
@@ -79,7 +80,7 @@ const PostEdit = ({ post, setShowEdit, fetchPosts }) => {
                     defaultValue={" "}
                     value={title}
                 />
-                <TextField sx={{ p: 1 }}
+                <TextField sx={{ p: 1, mt: 1 }}
                     required
                     label="Body"
                     variant="filled"
@@ -91,17 +92,22 @@ const PostEdit = ({ post, setShowEdit, fetchPosts }) => {
                     onChange={(e) => { setBody(e.target.value) }}
                     value={body}
                 />
-                <label >Character Count: {body.length}/2500</label>
+                <label>Character Count: {body.length}/2500</label>
                 <br />
-                <TextField sx={{ p: 1 }}
+                <TextField sx={{ p: 1, mt: 1 }}
                     required
+                    select
                     fullWidth
                     label="Category"
                     type="text"
                     onChange={(e) => setCategory(e.target.value)}
                     value={category}
-                />
-                <TextField sx={{ p: 1 }}
+                >
+                    <MenuItem value={'Bug'}>Bug</MenuItem>
+                    <MenuItem value={'Suggestion'}>Suggestion</MenuItem>
+                    <MenuItem value={'Other'}>Other</MenuItem>
+                </TextField>
+                <TextField sx={{ p: 1, mt: 1, mb: 2 }}
                     required
                     fullWidth
                     margin="500"
@@ -114,8 +120,6 @@ const PostEdit = ({ post, setShowEdit, fetchPosts }) => {
                 {error && <div className="error">{error}</div>}
             </Box>
         </div>
-
-
     )
 }
 

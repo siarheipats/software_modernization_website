@@ -59,6 +59,13 @@ const Search = () => {
                             />
                         ))
                         }
+                        {posts.length === 0 &&
+                            <Box sx={{ width: '100%', bgcolor: 'background.paper', pt: 10 }}>
+                                <Grid container alignItems="center">
+                                    <div>No results!</div>
+                                </Grid>
+                            </Box>
+                        }
                     </Box>
                 </Grid>
                 <Grid item xs>
