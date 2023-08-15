@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -43,12 +43,9 @@ const PostAdd = () => {
             setCategory("");
             setSoftwareName("");
             setNewPost(json);
+            setAuthor("Default Author");
         }
     }
-
-    const handleCategorySelectChange = (event) => {
-        setCategory(event.target.value);
-    };
 
     return (
         <Box sx={{ width: '100%', flexGrow: 1, overflow: 'auto', padding: '10px' }}>

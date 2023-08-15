@@ -1,6 +1,5 @@
 const PostModel = require("../models/postsModel");
 const mongoose = require("mongoose");
-const { use } = require("../routes/postsRouter");
 require('dotenv').config()
 
 function validatePostLength(post) {
